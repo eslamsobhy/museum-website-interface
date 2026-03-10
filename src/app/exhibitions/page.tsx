@@ -6,5 +6,21 @@ export const metadata = {
 };
 
 export default function ExhibitionsPage() {
-  return <ExhibitionsList />;
+  return (
+    <>
+      {/* Decorative SVG mask overlay */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/imgs-mask.svg"
+          alt=""
+          className="absolute top-[-1000.39px] right-[-559.15px] h-[2695.11px] w-[2667.3px] rotate-[-86.67deg] opacity-100"
+        />
+      </div>
+      <ExhibitionsList />
+    </>
+  );
 }

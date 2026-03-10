@@ -36,18 +36,6 @@ export default function RootLayout({
       <body
         className={`${patuaOne.variable} ${playfairDisplay.variable} ${notoSans.variable} flex min-h-screen flex-col antialiased`}
       >
-        {/* Decorative SVG mask overlay */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/imgs-mask.svg"
-            alt=""
-            className="absolute top-[-1000.39px] right-[-559.15px] w-[2667.3px] h-[2695.11px] rotate-[-86.67deg] opacity-100"
-          />
-        </div>
         <Navbar />
         <main className="relative z-10 flex-1 px-10">{children}</main>
         <Footer />
