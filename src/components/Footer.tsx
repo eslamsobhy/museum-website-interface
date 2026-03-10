@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { XIcon, YouTubeIcon, ContrastIcon } from "@/components/icons/SocialIcons";
+import Image from "next/image";
+import { XIcon, YouTubeIcon } from "@/components/icons/SocialIcons";
 
 export default function Footer() {
   const [fontSize, setFontSize] = useState(16);
@@ -59,23 +60,23 @@ export default function Footer() {
             <button
               onClick={toggleContrast}
               aria-label="Toggle high contrast"
-              className="flex h-10 w-10 items-center justify-center text-dark-blue transition-opacity duration-200 hover:opacity-70"
+              className="flex cursor-pointer items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
-              <ContrastIcon />
+              <Image src="/toggle-dark-mode-icon.svg" alt="" width={40} height={40} />
             </button>
             <button
               onClick={increaseFontSize}
               aria-label="Increase font size"
-              className="flex h-10 w-10 items-center justify-center font-patua text-[14px] text-dark-blue transition-opacity duration-200 hover:opacity-70"
+              className="flex cursor-pointer items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
-              A+
+              <Image src="/a+icon.svg" alt="" width={40} height={40} />
             </button>
             <button
               onClick={decreaseFontSize}
               aria-label="Decrease font size"
-              className="flex h-10 w-10 items-center justify-center font-patua text-[14px] text-dark-blue transition-opacity duration-200 hover:opacity-70"
+              className="flex cursor-pointer items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
-              A-
+              <Image src="/a-icon.svg" alt="" width={40} height={40} />
             </button>
           </div>
         </div>
