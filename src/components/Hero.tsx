@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import gsap from "gsap";
@@ -9,10 +9,8 @@ const ArtifactDisc = dynamic(() => import("./ArtifactDisc"), { ssr: false });
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: { ease: "power4.out" },
@@ -35,12 +33,6 @@ export default function Hero() {
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
           "-=0.4"
-        )
-        .fromTo(
-          ".hero-scroll-indicator",
-          { opacity: 0 },
-          { opacity: 1, duration: 1 },
-          "-=0.2"
         );
     }, sectionRef);
 
@@ -53,7 +45,7 @@ export default function Hero() {
       className="relative flex h-dvh flex-col items-center justify-center overflow-hidden px-6 lg:h-auto lg:min-h-screen lg:justify-start"
     >
       <div className="relative mx-auto w-full max-w-[1380px] lg:top-[-125px]">
-        {mounted && <ArtifactDisc />}
+        <ArtifactDisc />
 
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="flex max-w-[384px] flex-col items-center justify-center gap-[30px]">
@@ -73,15 +65,6 @@ export default function Hero() {
               Enter Exhibition
             </Link>
           </div>
-        </div>
-      </div>
-
-      <div className="hero-scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2">
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-cream/40">
-            Scroll
-          </span>
-          <div className="h-10 w-px animate-pulse bg-linear-to-b from-cream/40 to-transparent" />
         </div>
       </div>
     </section>
